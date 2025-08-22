@@ -1,0 +1,33 @@
+<header>
+  <nav
+    class="bg-gray-800/85 p-4 fixed top-0 w-full z-10 shadow-sm shadow-gray-900"
+  >
+    <div class="container mx-auto flex">
+      <div class="flex items-center gap-4">
+        <a class="text-white text-3xl font-semibold flex-1" routerLink="/"
+          >Task Management</a
+        >
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-4">
+        <button
+          type="button"
+          class="inline-flex items-center gap-2 outline outline-white hover:bg-white cursor-pointer text-white text-xl hover:text-black transition-colors duration-200 px-4 py-2 rounded"
+          (click)="goToGithub()"
+        >
+          <fa-icon [icon]="['fab', 'github']"></fa-icon>
+        </button>
+        <button
+          type="button"
+          class="inline-flex items-center gap-2 outline outline-white hover:bg-white cursor-pointer text-white text-xl hover:text-black transition-colors duration-200 px-4 py-2 rounded"
+          (click)="goToLinkedin()"
+        >
+          <fa-icon [icon]="['fab', 'linkedin']"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+<main class="flex justify-center align-middle mx-auto pb-6 px-4 w-full h-full">
+  <app-task-panel class="w-full h-full flex justify-center"></app-task-panel>
+</main>

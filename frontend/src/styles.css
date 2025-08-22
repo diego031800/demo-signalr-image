@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+html,
+body {
+  @apply h-full bg-gray-950 text-gray-200 font-sans antialiased;
+}
+
+app-root {
+  @apply h-full;
+}

@@ -1,0 +1,37 @@
+version: "4.43.1"
+services:
+  hubcon:
+    build:
+      context: ./hubcon
+    ports:
+      - "5000:5000"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    environment:
+      - HUB_URL=http://hubcon:5000/hub/images
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    volumes:
+      - ./backend:/app
+      - ~/.m2:/root/.m2
+    depends_on:
+      - hubcon
+    profiles: ["dev"]
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4404:4200"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+      - hubcon
+    profiles: ["dev"]

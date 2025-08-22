@@ -1,0 +1,12 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS dev
+WORKDIR /src
+
+# Copia SOLO el .csproj primero
+COPY Hub.csproj ./
+RUN dotnet restore
+
+# Ahora el resto del código
+COPY . .
+
+EXPOSE 5000
+CMD ["dotnet","watch","run","--urls","http://0.0.0.0:5000"]

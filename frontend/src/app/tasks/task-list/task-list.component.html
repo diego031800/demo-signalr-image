@@ -1,0 +1,16 @@
+<div class="w-full space-y-2">
+  @if (tasks.length === 0) {
+  <div class="text-gray-500">No tasks available</div>
+  } @else { @for (task of tasks; track $index) {
+  <div
+    class="flex items-center justify-between bg-gray-800 rounded px-4 py-3 cursor-pointer hover:bg-gray-900 transition"
+    (click)="selectedTask = task"
+  >
+    <div>
+      <div class="font-semibold text-gray-50">{{ task.title }}</div>
+      <div class="text-xs text-gray-300">{{ task.description }}</div>
+    </div>
+    <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon>
+  </div>
+  } }
+</div>
